@@ -1,3 +1,4 @@
+import 'package:alubank/themes/theme_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,41 +9,32 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color.fromRGBO(103, 99, 234, 1.0),
-            Color.fromRGBO(155, 105, 254, 1.0),
-            Color.fromRGBO(195, 107, 255, 1.0)
-          ],
-        ),
-        borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0))
-      ),
-      child: const Padding(
-        padding: EdgeInsets.fromLTRB(16.0, 80.0, 16.0, 16.0),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: ThemeColors.headerGradient,
+          ),
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0))),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16.0, 80.0, 16.0, 16.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text.rich(TextSpan(
-                    text: '\$',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
-                    children: [
-                      TextSpan(
-                          text: '1000.00',
-                          style: TextStyle(
-                              fontSize: 28, fontWeight: FontWeight.bold))
-                    ])),
-                Text(
+                Text.rich(TextSpan(text: '\$', children: [
+                  TextSpan(
+                    text: '1000.00',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  )
+                ])),
+                const Text(
                   'Balanço disponível',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
                 )
               ],
             ),
-            Icon(
+            const Icon(
               Icons.account_circle,
               size: 42,
               color: Colors.white,

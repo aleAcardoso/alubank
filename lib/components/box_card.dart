@@ -11,7 +11,7 @@ class BoxCard extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: kElevationToShadow[3],
         borderRadius: BorderRadius.circular(10.0),
-        color: const Color.fromRGBO(75, 75, 75, 1.0)
+        color: Theme.of(context).cardColor
       ),
       child: boxContent,
     );
